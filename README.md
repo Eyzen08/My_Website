@@ -1,175 +1,24 @@
-[index.html](https://github.com/user-attachments/files/24883541/index.html)
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJ Christian Medilo // BSIT-A602</title>
-    <style>
-        :root {
-            --neon-pink: #ff00ff;
-            --neon-blue: #00f2ff;
-            --dark-bg: #050505;
-        }
+# My Website
 
-        body, html {
-            height: 100%;
-            margin: 0;
-            background: var(--dark-bg);
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+Welcome to my personal website repository.
 
-        #matrix-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            z-index: 1;
-            opacity: 0.1;
-        }
+## About
 
-        .profile-card {
-            position: relative;
-            z-index: 20;
-            background: rgba(10, 10, 20, 0.95);
-            padding: 30px;
-            border: 1px solid var(--neon-blue);
-            box-shadow: 0 0 40px rgba(0, 242, 255, 0.3);
-            max-width: 400px;
-            text-align: center;
-            border-radius: 10px;
-        }
+This project is a personal portfolio website built using HTML, CSS, and JavaScript.
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--neon-pink);
-            border-radius: 50%;
-            margin-bottom: 15px;
-            object-fit: cover;
-            box-shadow: 0 0 20px var(--neon-pink);
-        }
+## Features
 
-        h1 {
-            font-size: 1.5rem;
-            color: var(--neon-blue);
-            margin: 0;
-            text-transform: uppercase;
-        }
+- Responsive Design
+- Personal Profile
+- Modern UI
+- Contact Section
 
-        h2 {
-            font-size: 0.9rem;
-            color: var(--neon-pink);
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
+## Technologies Used
 
-        #typing-bio {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #00f2ff;
-            background: rgba(0, 242, 255, 0.05);
-            padding: 15px;
-            border-left: 3px solid var(--neon-pink);
-            text-align: left;
-            min-height: 120px;
-            margin: 15px 0;
-        }
+- HTML5
+- CSS3
+- JavaScript
 
-        .social-links {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+## Author
 
-        .social-links a {
-            flex: 1;
-            text-decoration: none;
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            padding: 8px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .social-links a:hover {
-            background: var(--neon-blue);
-            color: black;
-            box-shadow: 0 0 15px var(--neon-blue);
-        }
-
-        .cursor {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
-</head>
-<body>
-    <canvas id="matrix-canvas"></canvas>
-    <div class="profile-card">
-        <img src="https://i.ibb.co/Z1JgtrTS/image-40ea1b.png" alt="EJ Christian Medilo" class="profile-img">
-        <h1>EJ Christian Medilo</h1>
-        <h2>BSIT - A602</h2>
-        <div id="typing-bio"></div>
-        <ul class="social-links">
-            <li><a href="https://www.facebook.com/Eyzenen" target="_blank">FACEBOOK</a></li>
-            <li><a href="https://www.instagram.com/ej.eyzen" target="_blank">INSTAGRAM</a></li>
-            <li><a href="#" onclick="showEmail()">CONTACT</a></li>
-        </ul>
-    </div>
-    <script>
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const characters = "01EJBSITA602";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const rainDrops = Array.from({ length: columns }).fill(1);
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-            for (let i = 0; i < rainDrops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0;
-                rainDrops[i]++;
-            }
-        }
-        setInterval(drawMatrix, 35);
-
-        const text = "Hi, I'm EJ. I'm a simple and happy person who enjoys the little things in life. I love riding my motor and spending time enjoying nature, as it helps me relax and stay positive. I believe that happiness comes from simplicity and a grateful heart. 🏍️🌿";
-        let index = 0;
-        const speed = 40;
-
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("typing-bio").innerHTML = text.substring(0, index + 1) + '<span class="cursor">|</span>';
-                index++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-        
-        function showEmail() {
-            alert("Email: medilo.348246@globalcity.sti.edu.ph");
-            return false;
-        }
-        
-        window.onload = function() {
-            setTimeout(typeWriter, 500);
-        };
-    </script>
-</body>
-</html>
+**Eyzen08**
